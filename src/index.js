@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import BookList from './components/BookList';
-import Categories from './components/Categories';
-import Navbar from './components/Navbar';
+import BookList from './components/BookList.js';
+import Categories from './components/Categories.js';
+import Navbar from './components/Navbar.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
