@@ -12,10 +12,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js start eslint . --fix",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "react-scripts eject",
+    "stylelint": "stylelint \"**/*.{css,scss}\" --fix"
   },
   "eslintConfig": {
     "extends": [
