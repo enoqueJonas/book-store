@@ -1,14 +1,12 @@
-import React from "react";
-import Book from "./Book";
-import BookForm from "./BookForm";
+import React from 'react';
+import Book from './Book';
+import BookForm from './BookForm';
 
-const BookList = () => {
-    return(
+const BookList = () => (
         <div className="wrapper">
             <Book title={'title'} author={'author'}/>
             <BookForm />
         </div>
-    );
-}
+);
 
-export default BookForm;
+export default BookList;
