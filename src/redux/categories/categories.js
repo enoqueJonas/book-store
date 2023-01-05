@@ -1,7 +1,7 @@
 const STATUS_CHECKED = 'STATUS_CHECKED';
 
 
-export default categories_reducer = (state = [], action) => {
+const categories_reducer = (state = [], action) => {
     switch(action.type){
         case STATUS_CHECKED:
             return 'Under construction';
@@ -14,3 +14,5 @@ export const statusChecked = () => {
         type: STATUS_CHECKED,
     }
 }
+
+export default categories_reducer;

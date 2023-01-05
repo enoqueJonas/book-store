@@ -1,7 +1,7 @@
 const BOOK_REMOVED = 'BOOK_REMOVED';
 const BOOK_ADDED = 'BOOK_ADDED';
 
-export default book_reducer = (state = [], action) => {
+const book_reducer = (state = [], action) => {
     switch(action.type){
         case BOOK_REMOVED:
             return state.splice(action.payload, 1);
@@ -24,3 +24,5 @@ export const book_added = (book = {}) => {
         payload: book,
     }
 }
+
+export default book_reducer;
