@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import BookList from './components/BookList.js';
-// import Categories from './components/Categories.js';
-// import Navbar from './components/Navbar.js';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-// import store from './redux/configureStore';
+import store from './redux/configureStore';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
       <App />
+    </Provider>
   </React.StrictMode>,
 );
 
