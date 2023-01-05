@@ -2,10 +2,12 @@ const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
 const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
 const initialState = [
   {
+    id: 0,
     author: 'James Clear',
     title: 'Atomic Habits',
   },
   {
+    id: 1,
     author: 'Robert Kiyosaki',
     title: 'Rich dad poor dad',
   },
