@@ -1,5 +1,5 @@
-const BOOK_REMOVED = 'BOOK_REMOVED';
-const BOOK_ADDED = 'BOOK_ADDED';
+const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
+const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
 
 const bookReducer = (state = [], action) => {
   switch (action.type) {
