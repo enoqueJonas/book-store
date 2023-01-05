@@ -5,14 +5,6 @@ import BookForm from './BookForm.js';
 
 const BookList = () => {
   const books = useSelector((state) => state.bookReducer);
-  //   const books = [{
-  //     author: 'James Clear',
-  //     title: 'Atomic Habits',
-  //   },
-  //   {
-  //     author: 'Robert Kiyosaki',
-  //     title: 'Rich dad poor dad',
-  //   }];
   return (
         <div className="wrapper">
             {books.map((book) => (
