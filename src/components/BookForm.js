@@ -5,7 +5,9 @@ import { bookAdded } from '../redux/books/book';
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();
+
   const onTitleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -14,7 +16,9 @@ const BookForm = () => {
     setAuthor(e.target.value);
   };
   const handleSubmit = () => {
+    setCounter(counter + 1);
     const obj = {
+      id: counter,
       title,
       author,
     };
