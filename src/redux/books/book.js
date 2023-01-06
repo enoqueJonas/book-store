@@ -23,14 +23,54 @@ const bookReducer = (state = initialState, action) => {
   }
 };
 
-export const bookRemoved = (bookID) => ({
-  type: BOOK_REMOVED,
-  payload: bookID,
-});
+// export const bookRemoved = (bookID) => ({
+//     type: BOOK_REMOVED,
+//     payload: bookID,
+// });
 
-export const bookAdded = (book = {}) => ({
-  type: BOOK_ADDED,
-  payload: book,
-});
+export const bookRemoved = (bookID) => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}}`, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+  }).then((response) => response.json()).catch((err) => err);
+
+  dispatch({
+    type: BOOK_REMOVED,
+    payload: bookID,
+  });
+};
+
+// export const bookAdded = (book = {}) => ({
+//   type: BOOK_ADDED,
+//   payload: book,
+// });
+
+export const bookAdded = (book = {}) => async (dispatch) => {
+  const obj = {
+    item_id: book.id,
+    title: book.title,
+    author: book.author,
+    category: 'Non-Fiction',
+  };
+
+  const res = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books}', {
+    method: 'POST',
+    body: JSON.stringify(obj),
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+  }).then((response) => response.json()).catch((err) => err);
+
+  dispatch({
+    type: BOOK_ADDED,
+    payload: res,
+  });
+};
 
 export default bookReducer;
