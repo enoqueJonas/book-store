@@ -39,11 +39,6 @@ export const booksRetrieved = () => async (dispatch) => {
   });
 };
 
-// export const bookRemoved = (bookID) => ({
-//     type: BOOK_REMOVED,
-//     payload: bookID,
-// });
-
 export const bookRemoved = (bookID) => async (dispatch) => {
   const res = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}}`, {
     method: 'POST',
@@ -60,11 +55,6 @@ export const bookRemoved = (bookID) => async (dispatch) => {
   });
   return res;
 };
-
-// export const bookAdded = (book = {}) => ({
-//   type: BOOK_ADDED,
-//   payload: book,
-// });
 
 export const bookAdded = (book = {}) => async (dispatch) => {
   const obj = {

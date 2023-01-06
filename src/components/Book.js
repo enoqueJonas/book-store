@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { bookRemoved } from '../redux/books/book';
+
 
 const Book = (props) => {
   const dispatch = useDispatch();
 
   const handleRemove = (e) => {
-    dispatch(bookRemoved(e.target.id));
+    dispatch(removeBook(e.target.id));
   };
 
   return (

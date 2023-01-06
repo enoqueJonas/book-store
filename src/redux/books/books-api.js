@@ -17,10 +17,23 @@ export const getBooks = createAsyncThunk(BOOKS_RETRIEVED, async () => {
   return data;
 });
 
-export const addBook = createAsyncThunk(BOOK_ADDED, async () => {
-
+export const addBook = createAsyncThunk(BOOK_ADDED, async (book) => {
+  await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books', {
+    method: 'POST',
+    body: JSON.stringify(book),
+    mode: 'cors',
+    redirect: 'follow',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
 });
 
-export const removeBook = createAsyncThunk(BOOK_REMOVED, async () => {
-
+export const removeBook = createAsyncThunk(BOOK_REMOVED, async (bookID) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}`, {
+    method: 'DELETE',
+    body: JSON.stringify(book),
+    mode: 'cors',
+    redirect: 'follow',
+  });
 });
