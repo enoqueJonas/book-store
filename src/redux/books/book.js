@@ -1,26 +1,42 @@
-const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
-const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
-const initialState = [
-  {
-    id: 0,
-    author: 'James Clear',
-    title: 'Atomic Habits',
-  },
-  {
-    id: 1,
-    author: 'Robert Kiyosaki',
-    title: 'Rich dad poor dad',
-  },
-];
+export const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
+export const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
+export const BOOKS_RETRIEVED = 'book-store/src/redux/book/BOOKS_RETRIEVED';
+const initialState = [];
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case BOOK_REMOVED:
+    case `${BOOK_REMOVED}/fulfilled`:
       return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
-    case BOOK_ADDED:
+    case `${BOOK_ADDED}/fulfilled`:
       return [...state, action.payload];
+    case `${BOOKS_RETRIEVED}/fulfilled`:
+      return Object.keys(action.payload).map((key) => {
+        const { title, author, cathegory } = action.payload[key][0];
+        return {
+          item_id: key,
+          title,
+          author,
+          cathegory,
+        };
+      });
     default: return state;
   }
+};
+
+export const booksRetrieved = () => async (dispatch) => {
+  const res = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books', {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+  }).then((response) => response.json()).catch((err) => err);
+
+  dispatch({
+    type: BOOKS_RETRIEVED,
+    payload: res,
+  });
 };
 
 // export const bookRemoved = (bookID) => ({
@@ -29,7 +45,7 @@ const bookReducer = (state = initialState, action) => {
 // });
 
 export const bookRemoved = (bookID) => async (dispatch) => {
-  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}}`, {
+  const res = await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}}`, {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -42,6 +58,7 @@ export const bookRemoved = (bookID) => async (dispatch) => {
     type: BOOK_REMOVED,
     payload: bookID,
   });
+  return res;
 };
 
 // export const bookAdded = (book = {}) => ({
@@ -71,6 +88,8 @@ export const bookAdded = (book = {}) => async (dispatch) => {
     type: BOOK_ADDED,
     payload: res,
   });
+  console.log(res);
+  return res;
 };
 
 export default bookReducer;
