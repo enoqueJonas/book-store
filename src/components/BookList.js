@@ -12,6 +12,7 @@ const BookList = () => {
   }, [dispatch]);
 
   const books = useSelector((state) => state.bookReducer, shallowEqual);
+
   return (
     <div className="wrapper">
       {books.map((book) => (

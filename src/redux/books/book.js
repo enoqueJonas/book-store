@@ -6,9 +6,10 @@ const initialState = [];
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${BOOK_REMOVED}/fulfilled`:
-      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
+      return state.filter((book) => book.item_id !== action.meta.arg);
+
     case `${BOOK_ADDED}/fulfilled`:
-      return [...state, action.payload];
+      return state.concat(action.meta.arg);
     case `${BOOKS_RETRIEVED}/fulfilled`:
       return Object.keys(action.payload).map((key) => {
         const { title, author, cathegory } = action.payload[key][0];
