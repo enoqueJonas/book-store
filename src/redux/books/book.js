@@ -1,12 +1,24 @@
 const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
 const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
+const initialState = [
+  {
+    id: 0,
+    author: 'James Clear',
+    title: 'Atomic Habits',
+  },
+  {
+    id: 1,
+    author: 'Robert Kiyosaki',
+    title: 'Rich dad poor dad',
+  },
+];
 
-const bookReducer = (state = [], action) => {
+const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case BOOK_REMOVED:
-      return state.splice(action.payload, 1);
+      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
     case BOOK_ADDED:
-      return state.push(action.payload);
+      return [...state, action.payload];
     default: return state;
   }
 };

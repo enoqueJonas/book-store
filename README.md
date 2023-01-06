@@ -23,6 +23,7 @@
     - [Setup](#setup)
   - [👥 Authors ](#-authors-)
   - [Authors](#authors)
+  - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
@@ -95,6 +96,10 @@ In order to run this project you need:
 - Twitter: [@enoque_jonas](https://twitter.com/enoque_jonas)
 - LinkedIn: [@Enoque Macanda](https://www.linkedin.com/mwlite/in/enoque-macanda) 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+ Edit book functionality
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
