@@ -1,36 +1,27 @@
-const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
-const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
-const initialState = [
-  {
-    id: 0,
-    author: 'James Clear',
-    title: 'Atomic Habits',
-  },
-  {
-    id: 1,
-    author: 'Robert Kiyosaki',
-    title: 'Rich dad poor dad',
-  },
-];
+export const BOOK_REMOVED = 'book-store/src/redux/book/BOOK_REMOVED';
+export const BOOK_ADDED = 'book-store/src/redux/book/BOOK_ADDED';
+export const BOOKS_RETRIEVED = 'book-store/src/redux/book/BOOKS_RETRIEVED';
+const initialState = [];
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case BOOK_REMOVED:
-      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
-    case BOOK_ADDED:
-      return [...state, action.payload];
+    case `${BOOK_REMOVED}/fulfilled`:
+      return state.filter((book) => book.item_id !== action.meta.arg);
+
+    case `${BOOK_ADDED}/fulfilled`:
+      return state.concat(action.meta.arg);
+    case `${BOOKS_RETRIEVED}/fulfilled`:
+      return Object.keys(action.payload).map((key) => {
+        const { title, author, cathegory } = action.payload[key][0];
+        return {
+          item_id: key,
+          title,
+          author,
+          cathegory,
+        };
+      });
     default: return state;
   }
 };
-
-export const bookRemoved = (bookID) => ({
-  type: BOOK_REMOVED,
-  payload: bookID,
-});
-
-export const bookAdded = (book = {}) => ({
-  type: BOOK_ADDED,
-  payload: book,
-});
 
 export default bookReducer;

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { bookAdded } from '../redux/books/book';
+import { v4 as uuid } from 'uuid';
+import { addBook } from '../redux/books/books-api';
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [counter, setCounter] = useState(2);
+  const [category, setCategory] = useState('Non-fiction');
   const dispatch = useDispatch();
 
   const onTitleChange = (e) => {
@@ -15,22 +16,26 @@ const BookForm = () => {
   const onAuthorChange = (e) => {
     setAuthor(e.target.value);
   };
-  const handleSubmit = () => {
-    setCounter(counter + 1);
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const obj = {
-      id: counter,
+      item_id: uuid(),
       title,
       author,
+      category,
     };
-    dispatch(bookAdded(obj));
+    dispatch(addBook(obj));
+    setAuthor('');
+    setTitle('');
+    setCategory('');
   };
 
   return (
-        <div>
-            <input type='text' placeholder="Book title" onChange={onTitleChange} />
-            <input type='text' placeholder='Book author' onChange={onAuthorChange} />
-            <button onClick={handleSubmit}>ADD BOOK</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <input type='text' placeholder="Book title" onChange={onTitleChange} required/>
+            <input type='text' placeholder='Book author' onChange={onAuthorChange} required/>
+            <button>ADD BOOK</button>
+        </form>
   );
 };
 
