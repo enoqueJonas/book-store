@@ -32,7 +32,6 @@ export const addBook = createAsyncThunk(BOOK_ADDED, async (book) => {
 export const removeBook = createAsyncThunk(BOOK_REMOVED, async (bookID) => {
   await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cyrOEiom50i8ck38kYLJ/books/${bookID}`, {
     method: 'DELETE',
-    body: JSON.stringify(book),
     mode: 'cors',
     redirect: 'follow',
   });
