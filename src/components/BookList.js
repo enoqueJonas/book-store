@@ -14,7 +14,7 @@ const BookList = () => {
   const books = useSelector((state) => state.bookReducer, shallowEqual);
 
   return (
-    <div className="wrapper">
+    <div className="book-list">
       {books.map((book) => (
         <Book title={book.title} author={book.author} id={book.item_id} key={book.item_id} />
       ))}

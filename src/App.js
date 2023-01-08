@@ -6,7 +6,7 @@ import Categories from './components/Categories.js';
 import Navbar from './components/Navbar.js';
 
 const App = () => (
-        <>
+        <div className='wrapper'>
             <BrowserRouter>
                 <Navbar />
                 <Routes>
@@ -14,7 +14,7 @@ const App = () => (
                     <Route path='/categories' element={<Categories />} />
                 </Routes>
             </BrowserRouter>
-        </>
+        </div>
 );
 
 export default App;
