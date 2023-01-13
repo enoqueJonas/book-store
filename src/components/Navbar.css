@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 45em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.navbar-title {
+  font-size: 1.8em;
+}
+
+.navmenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 10em;
+  gap: 10px;
+  list-style: none;
+}
