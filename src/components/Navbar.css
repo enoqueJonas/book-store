@@ -19,3 +19,8 @@
   gap: 10px;
   list-style: none;
 }
+
+.nav-link {
+  color: lightblue;
+  text-decoration: none;
+}
