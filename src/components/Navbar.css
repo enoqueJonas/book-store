@@ -24,3 +24,7 @@
   color: lightblue;
   text-decoration: none;
 }
+
+.nav-link.active {
+  text-decoration: underline;
+}
