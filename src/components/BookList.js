@@ -3,6 +3,7 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import Book from './Book.js';
 import BookForm from './BookForm.js';
 import { getBooks } from '../redux/books/books-api.js';
+import './BookList.css';
 
 const BookList = () => {
   const dispatch = useDispatch();
