@@ -1,0 +1,11 @@
+.book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 30em;
+  height: 15em;
+  gap: 20px;
+}
