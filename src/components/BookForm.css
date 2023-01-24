@@ -9,3 +9,10 @@
   height: 15em;
   gap: 20px;
 }
+
+.book-item {
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+}
