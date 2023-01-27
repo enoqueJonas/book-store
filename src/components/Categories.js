@@ -13,14 +13,14 @@ const Categories = () => {
     <>
       <button onClick={handleSubmit}>Check Status</button>
       <form>
-        <label>
-          Categorie:
-          <select>
-            <option>Choose one</option>
-            <option>Romance</option>
-            <option>Personal Development</option>
-            <option>Biography</option>
-            <option>Tale</option>
+        <label className='category-label'>
+          Categories:
+          <select className='category-select'>
+            <option className='category-item'>Choose one</option>
+            <option className='category-item'>Romance</option>
+            <option className='category-item'>Personal Development</option>
+            <option className='category-item'>Biography</option>
+            <option className='category-item'>Tale</option>
           </select>
         </label>
       </form>
