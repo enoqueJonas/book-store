@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { statusChecked } from '../redux/categories/categories';
+import './Categories.css';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Categories = () => {
   return (
     <>
       <button onClick={handleSubmit}>Check Status</button>
-      <form>
+      <form className='category-form'>
         <label className='category-label'>
           Categories:
           <select className='category-select'>
