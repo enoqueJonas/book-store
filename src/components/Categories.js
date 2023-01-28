@@ -11,7 +11,7 @@ const Categories = () => {
   };
 
   return (
-    <>
+    <div className='categories-wrap'>
       <button onClick={handleSubmit}>Check Status</button>
       <form className='category-form'>
         <label className='category-label'>
@@ -25,7 +25,7 @@ const Categories = () => {
           </select>
         </label>
       </form>
-    </>
+    </div>
   );
 };
 

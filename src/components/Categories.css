@@ -5,3 +5,9 @@
   width: 20em;
   height: 3em;
 }
+
+
+.categories-wrap {
+    display: flex;
+    flex-direction: column;
+}
