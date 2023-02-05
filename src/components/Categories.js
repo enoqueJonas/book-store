@@ -12,7 +12,7 @@ const Categories = () => {
 
   return (
     <div className='categories-wrap'>
-      <button onClick={handleSubmit}>Check Status</button>
+      <button className='btn-status' onClick={handleSubmit}>Check Status</button>
       <form className='category-form'>
         <label className='category-label'>
           Categories:

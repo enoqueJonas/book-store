@@ -12,3 +12,9 @@
     flex-direction: column;
     margin: 20px;
 }
+
+.btn-status{
+  border: none;
+  box-shadow: 1px 1px 1px 1px lightblue;
+  height: 30px;
+}
