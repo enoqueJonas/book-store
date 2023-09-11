@@ -32,11 +32,11 @@ const BookForm = () => {
   };
 
   return (
-        <form className='book-form' onSubmit={handleSubmit}>
-            <input className='book-item book-title' type='text' placeholder="Book title" onChange={onTitleChange} required/>
-            <input className='book-item book-author' type='text' placeholder='Book author' onChange={onAuthorChange} required/>
-            <button className='btn-add'>ADD BOOK</button>
-        </form>
+    <form className='book-form' onSubmit={handleSubmit}>
+      <input data-cy='title-field' className='book-item book-title' type='text' placeholder="Book title" onChange={onTitleChange} required />
+      <input data-cy='author-field' className='book-item book-author' type='text' placeholder='Book author' onChange={onAuthorChange} required />
+      <button data-cy='submit-btn' className='btn-add'>ADD BOOK</button>
+    </form>
   );
 };
 
