@@ -20,7 +20,7 @@ describe('Add Book Page', () => {
     const authorField = '[data-cy="author-field"]';
     const submitBtn = '[data-cy="submit-btn"]';
 
-    cy.get(titleField).type('The Laws Of Human Nature');
+    cy.get(titleField).type('Laws Of Human Nature');
     cy.get(authorField).type('Robert Greene');
 
     // Remove all children
